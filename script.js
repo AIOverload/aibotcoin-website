@@ -1,3 +1,7 @@
+// Function to add fade-in animation when sections are scrolled into view
+document.addEventListener('DOMContentLoaded', function () {
+        const sections = document.querySelectorALL('section');
+
 function fadeInSection() {
         sections.forEach(section => {
             const sectionPosition = section.getBoundingClientRect().top;
