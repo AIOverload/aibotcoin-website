@@ -60,8 +60,8 @@ function updatePriceTicker() {
         .catch(error => console.error('Error fetching prices:', error));
 }
 
-// Call updatePriceTicker every 30 seconds to refresh prices
-setInterval(updatePriceTicker, 30000);
+// Call updatePriceTicker every 10 seconds to refresh prices
+setInterval(updatePriceTicker, 10000);
 
 // Initial call to display prices when page loads
 document.addEventListener('DOMContentLoaded', updatePriceTicker);
