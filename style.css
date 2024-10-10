@@ -78,3 +78,28 @@ footer p {
     color: #888;
     font-size: 0.9em;
 }
+
+/* Price Ticker Section */
+#price-ticker-section {
+    background-color: #222;
+    padding: 20px 0;
+    color: #00d4ff;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.ticker span {
+    margin: 0 10px;
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+section {
+    opacity: 0;
+    transform: translateY(50px);
+}
