@@ -45,8 +45,11 @@ function updatePriceTicker() {
             const btcPrice = data.bitcoin.usd;
             const ethPrice = data.ethereum.usd;
 
-            // You can adjust the AIBotCoin price manually for now
-            const aiBotCoinPrice = 0.00001;
+             // Adjust the AIBotCoin price manually (for example purposes)
+            // Assume market cap is $1 million for now.
+            const totalSupply = 10000000000000; // 10 trillion tokens
+            const marketCap = 1000000; // $1 million market cap
+            const aiBotCoinPrice = marketCap / totalSupply; // Price per token
 
             ticker.innerHTML = `
                 <span>AIBotCoin: $${aiBotCoinPrice} | </span>
