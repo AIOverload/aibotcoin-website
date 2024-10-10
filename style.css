@@ -1,58 +1,72 @@
-/* General Styling for the Slogans */
-.slogan {
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-    color: #00d4ff; /* AI-themed blue color */
-    margin-top: 10px;
-}
-
-/* Slogans in the Header (for larger effect) */
-header p {
-    font-size: 2em;
-    font-weight: bold;
-    color: #00d4ff;
-    margin: 10px 0;
-}
-
-/* Adjust margins and text alignment for a clean look */
-header p {
-    margin: 10px 0;
-    text-align: center;
-}
-
-.slogan {
-    margin-bottom: 20px;
-}
-
-/* Image styling for hero and about images */
-.hero-image, .ai-image {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Contact section styling */
-#contact {
-    text-align: center;
-    padding: 40px 0;
-    background-color: #222;
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0f0f0f;
     color: #fff;
 }
 
-#contact a {
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: #00d4ff;
+}
+
+p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #00d4ff;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
     text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
 }
 
-#contact a:hover {
-    text-decoration: underline;
+/* Section Styling */
+section {
+    padding: 60px 0;
 }
 
-/* Footer styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #00d4ff;
+    margin-bottom: 40px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul li {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
 footer {
     background-color: #222;
     padding: 20px 0;
@@ -62,4 +76,29 @@ footer {
 footer p {
     color: #888;
     font-size: 0.9em;
+}
+
+/* Price Ticker Section */
+#price-ticker-section {
+    background-color: #222;
+    padding: 20px 0;
+    color: #00d4ff;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.ticker span {
+    margin: 0 10px;
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+section {
+    opacity: 0;
+    transform: translateY(50px);
 }
