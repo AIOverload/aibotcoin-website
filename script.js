@@ -1,8 +1,8 @@
 // Function to add fade-in animation when sections are scrolled into view
 document.addEventListener('DOMContentLoaded', function () {
-        const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section');
 
-function fadeInSection() {
+    function fadeInSection() {
         sections.forEach(section => {
             const sectionPosition = section.getBoundingClientRect().top;
             const screenPosition = window.innerHeight / 1.3;
@@ -16,43 +16,24 @@ function fadeInSection() {
     window.addEventListener('scroll', fadeInSection);
 });
 
-// Add fade-in class in CSS to define the animation
-document.addEventListener('DOMContentLoaded', function () {
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-        
-        section {
-            opacity: 0;
-            transform: translateY(50px);
-        }
-    `;
-    document.head.appendChild(style);
-});
-
-// Price ticker function using CoinGecko API
+// Function to update price ticker dynamically
 function updatePriceTicker() {
     const ticker = document.getElementById('price-ticker');
 
-    // Fetch live prices from CoinGecko API (Bitcoin and Ethereum as examples)
+    // Fetch live prices from CoinGecko API for Bitcoin and Ethereum
     fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd')
         .then(response => response.json())
         .then(data => {
             const btcPrice = data.bitcoin.usd;
             const ethPrice = data.ethereum.usd;
 
-             // Adjust the AIBotCoin price manually (for example purposes)
-            // Assume market cap is $1 million for now.
+            // Adjust the AIBotCoin price manually (for example purposes)
             const totalSupply = 10000000000000; // 10 trillion tokens
             const marketCap = 1000000; // $1 million market cap
             const aiBotCoinPrice = marketCap / totalSupply; // Price per token
 
             ticker.innerHTML = `
-                <span>AIBotCoin: $${aiBotCoinPrice} | </span>
+                <span>AIBotCoin: $${aiBotCoinPrice.toFixed(8)} | </span>
                 <span>Bitcoin (BTC): $${btcPrice} | </span>
                 <span>Ethereum (ETH): $${ethPrice}</span>
             `;
@@ -60,8 +41,8 @@ function updatePriceTicker() {
         .catch(error => console.error('Error fetching prices:', error));
 }
 
-// Call updatePriceTicker every 10 seconds to refresh prices
-setInterval(updatePriceTicker, 10000);
+// Call the updatePriceTicker function every 10 seconds (10,000 milliseconds)
+setInterval(updatePriceTicker, 10000); // Adjust to 10 seconds for faster updates
 
 // Initial call to display prices when page loads
 document.addEventListener('DOMContentLoaded', updatePriceTicker);
