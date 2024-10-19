@@ -150,19 +150,19 @@ footer a:hover {
 
 /* Each background section with a different image */
 .background-1 {
-    background-image: url('/path-to-your-image/IMG_5222.JPG'); /* Update with correct path */
+    background-image: url('IMG_5222.JPG');
 }
 
 .background-2 {
-    background-image: url('/path-to-your-image/IMG_5225.JPG'); /* Update with correct path */
+    background-image: url('IMG_5225.JPG');
 }
 
 .background-3 {
-    background-image: url('/path-to-your-image/IMG_5227.JPG'); /* Update with correct path */
+    background-image: url('IMG_5227.JPG');
 }
 
 .background-4 {
-    background-image: url('/path-to-your-image/IMG_5228.JPG'); /* Update with correct path */
+    background-image: url('IMG_5228.JPG');
 }
 
 /* Fade-in animation */
