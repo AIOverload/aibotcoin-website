@@ -7,6 +7,7 @@ body, html {
     color: #fff;
 }
 
+/* Header Styles */
 header {
     background: url('https://example.com/your-image-url.jpg') no-repeat center center/cover;
     height: 100vh;
@@ -14,8 +15,28 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative; /* Add this to make the ::before overlay work */
 }
 
+/* Add the overlay for the header background */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust the opacity as needed */
+    z-index: 1;
+}
+
+/* Ensure text and buttons are on top of the overlay */
+header h1, header p, .btn {
+    position: relative;
+    z-index: 2;
+}
+
+/* Existing Header Content Styling */
 h1 {
     font-size: 3em;
     margin: 0;
@@ -37,69 +58,4 @@ p {
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 1.2em;
-}
-
-/* Section Styling */
-section {
-    padding: 60px 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-h2 {
-    text-align: center;
-    color: #00d4ff;
-    margin-bottom: 40px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-ul li {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-footer {
-    background-color: #222;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer p {
-    color: #888;
-    font-size: 0.9em;
-}
-
-/* Price Ticker Section */
-#price-ticker-section {
-    background-color: #222;
-    padding: 20px 0;
-    color: #00d4ff;
-    font-size: 1.2em;
-    text-align: center;
-}
-
-.ticker span {
-    margin: 0 10px;
-}
-
-/* Fade-in animation */
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-section {
-    opacity: 0;
-    transform: translateY(50px);
 }
