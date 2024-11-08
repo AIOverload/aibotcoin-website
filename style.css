@@ -167,6 +167,42 @@ footer a:hover {
     transform: translateY(0);
 }
 
+/* Listed Exchanges Section */
+.listed-exchanges {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.listed-exchanges h2 {
+    font-size: 2em;
+    color: #00d4ff;
+    margin-bottom: 20px;
+}
+
+/* Logo and Link Styling */
+.logo-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.logo-link img {
+    margin-bottom: 10px;
+}
+
+.logo-link a {
+    color: #00d4ff; /* Customize link color */
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.logo-link a:hover {
+    color: #0088cc; /* Hover color for link */
+    text-decoration: underline;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     h1 {
