@@ -168,12 +168,12 @@ footer a:hover {
 }
 
 /* Listed Exchanges Section */
-.listed-exchanges {
+.Listings {
     text-align: center;
     padding: 40px 20px;
 }
 
-.listed-exchanges h2 {
+.Listings h2 {
     font-size: 2em;
     color: #00d4ff;
     margin-bottom: 20px;
