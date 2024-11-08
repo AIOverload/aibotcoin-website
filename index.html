@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIBotCoin - The Future of Memecoins</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+  /* Background and Clouds */
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #1a1a1a, #000);
+  }
+
+  .clouds {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url('clouds.png') repeat-x;
+    opacity: 0.5;
+    animation: moveClouds 30s linear infinite;
+  }
+
+  @keyframes moveClouds {
+    from { background-position: 0 0; }
+    to { background-position: -2000px 0; }
+  }
+
+  .lightning {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    animation: flash 0.5s ease-in-out infinite;
+  }
+
+  @keyframes flash {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.8; }
+  }
+</style>
+
 </head>
 <body>
     <!-- Header Section -->
     <header>
+        <div id="background"></div>
+        <div class="clouds"></div>
+        <div class="lightning"></div>
         <div class="container">
             <h1>AIBotCoin (ABC)</h1>
             <p>In AI We Trust! 🚀</p>
@@ -162,5 +206,64 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.getElementById('background').appendChild(renderer.domElement);
+
+  // Lighting for 3D effect
+  const ambientLight = new THREE.AmbientLight(0x404040, 2);
+  scene.add(ambientLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+  directionalLight.position.set(0, 1, 0).normalize();
+  scene.add(directionalLight);
+
+  // Coin Geometry
+  const geometry = new THREE.CircleGeometry(0.5, 32);
+  const material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('ethereum-token.png') });
+
+  function createCoin() {
+    const coin = new THREE.Mesh(geometry, material);
+    coin.position.set(Math.random() * 10 - 5, 10, Math.random() * 5 - 2.5);
+    scene.add(coin);
+    return coin;
+  }
+
+  // Animate coins falling
+  const coins = Array.from({ length: 50 }, createCoin);
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    coins.forEach(coin => {
+      coin.position.y -= 0.1;
+      if (coin.position.y < -5) coin.position.y = 10; // Reset coin position after it falls
+      coin.rotation.z += 0.05; // Rotate for 3D effect
+    });
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Resize for responsiveness
+  window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  });
+
+  // Lightning Flash effect
+  function flashLightning() {
+    const lightning = document.querySelector('.lightning');
+    lightning.style.opacity = '0.8';
+    setTimeout(() => { lightning.style.opacity = '0'; }, 100);
+  }
+
+  setInterval(flashLightning, Math.random() * 4000 + 2000);
+</script>
+
 </body>
 </html>
