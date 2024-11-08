@@ -38,18 +38,8 @@ header h1, header p, .btn {
     z-index: 2;
 }
 
-/* Vertical Header Layout */
-.vertical-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    gap: 10px; /* Space between elements */
-}
-
 /* Existing Header Content Styling */
-.vertical-header h1 {
+h1 {
     font-size: 3em;
     margin: 0;
     text-transform: uppercase;
@@ -57,12 +47,12 @@ header h1, header p, .btn {
     color: #00d4ff;
 }
 
-.vertical-header p {
+p {
     font-size: 1.5em;
     margin-bottom: 20px;
 }
 
-.vertical-header .btn {
+.btn {
     padding: 10px 20px;
     background-color: #00d4ff;
     border: none;
@@ -74,21 +64,9 @@ header h1, header p, .btn {
 }
 
 /* Button hover effect */
-.vertical-header .btn:hover {
+.btn:hover {
     background-color: #0088cc;
     transition: background-color 0.3s ease;
-}
-
-/* Logo download section */
-.vertical-header .logo-download {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.vertical-header .logo-download img {
-    margin-top: 5px;
 }
 
 /* Section Styling */
